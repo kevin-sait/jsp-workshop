@@ -1,0 +1,92 @@
+#banner {
+	width: 800px;
+	height: 200px;
+	background-image: url(images/banner.jpg);
+	clear: both;
+}
+	
+a {
+	text-decoration: none;
+}
+
+header {
+	margin-top: 0px;
+}
+
+#menu1 {
+	padding: 15px 0 5px;
+	float: left;
+}
+
+#menu1 a {
+	margin-right: 20px;
+}
+
+#menu2 {
+	padding: 15px 0 5px;
+	float: right;
+}
+
+#menu2 a {
+	margin-left: 20px;
+}
+
+h1 {
+	text-align: center;
+	margin: 15px 0;
+}
+
+td {
+	text-align: right;
+	padding: 5px;
+}
+
+body {
+	width: 800px;
+	font-family: Arial;
+	margin: auto;
+}
+
+table {
+	margin: auto;
+}
+
+p {
+	line-height: 22px;
+}
+
+footer {
+	background-color: lightgray;
+	padding: 20px;
+	margin-top: 30px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+.bookings, .account {
+	text-align: center;
+	margin: 20px 0 30px;
+}
+
+.booking-details {
+	margin-bottom: 40px;
+}
+
+.message {
+	color: green;
+	font-size: 22px;
+	text-align: center;
+	margin: 20px;
+	padding: 20px;
+}
+
+.success {
+	color: green;
+	background: lightgreen;
+}
+
+.failed {
+	color: red;
+	background: lightsalmon;
+}
+
