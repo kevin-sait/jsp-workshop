@@ -149,13 +149,14 @@ Description: This is a Jsp/Servlet form, Can be used by customer to view and upd
 			{
 				int c = stmt.executeUpdate(updateQuery);
 				stmt.executeQuery("commit");
+			    response.sendRedirect("account.jsp?success=true");
 			} 
 			catch (SQLException e)
 			{
+				validData = false;   
+			 	errorMsg = "Unknown SQL error!";
 				e.printStackTrace();
 			}
-			
-			 response.sendRedirect("account.jsp?success=true");
 		 }
 		 else 
 		 {
