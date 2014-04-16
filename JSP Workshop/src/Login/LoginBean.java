@@ -1,3 +1,14 @@
+/*****************************************************
+Application Name: Travel Expert Information System (Web)
+                  (Threaded Project phase 3)
+Module Name: LoginBean.java
+Purpose of this module: 
+ - connect database, get users table data for authentication
+ - if authentication is OK, set customer id session
+ - if authentication failed, returns err message
+Author : Ryuji Sasaki                            
+Create Date: 14/04/2014
+*****************************************************/
 package Login;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -5,51 +16,59 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
 import javax.servlet.http.HttpSession;
 
+/**
+ * LoginBean class
+ */
 public class LoginBean {
 	
+	/**
+	 * logout
+	 */
 	public void logout(HttpSession session){
 		session.removeAttribute("CustID");
 		session.removeAttribute("loggedin");
 		session.removeAttribute("userid");
 	}
 
+	/**
+	 * verifyLogin
+	 */
 	public String verifyLogin(String userid,String password, HttpSession session){
 	
 	String message = "";
 	
 	try
 	   {
-//	      Class.forName("com.mysql.jdbc.Driver");
-//	      Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/TravelExperts", "root", "");
-//	      //PreparedStatement stmt = conn.prepareStatement("select password from Users where userid=?");
-//	      PreparedStatement stmt = conn.prepareStatement("select password from Users where userid=? and password=?");
-//	      stmt.setString(1, userid);
-//	      stmt.setString(2, password);
-//	      ResultSet rs = stmt.executeQuery();
-	      
+      
 	      // creates DB connection
 	      Class.forName("oracle.jdbc.driver.OracleDriver");
 	   	  Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "ictoosd", "ictoosd");
 	   	  
+	   	  // select SQL
 		  String sql = "select customerid from Users where ";
 		  sql += "userid = ? and password = ? ";
+		  
+		  // create preparedstatement 
 		  PreparedStatement stmt = conn.prepareStatement(sql);
+		  
+		  // set parameters
 		  stmt.setString(1, userid);
 		  stmt.setString(2, password);
+		  
 		  // executes SQL
 		  ResultSet rs = stmt.executeQuery();
-			  
+		  
+		  // Login failed
 	      if (!rs.next())
 	      {
 	    	  message = "UserId or Password are incorrect";
+	    	  
+	    	// Login succeed
 	      } else {
 	    	  updateSession(session,rs.getString("customerid").toString(),userid);
-	    	  //updateSession(session);
-	      }
- 	      
+	      } 	      
 	   }
 	   catch(ClassNotFoundException e)
 	   {
@@ -65,7 +84,10 @@ public class LoginBean {
 	return message;
 	
 	}
-		
+	
+	/**
+	 * updateSession
+	 */
 	private void updateSession(HttpSession session, String custId, String userid)
 	{
 		session.setAttribute("CustID", custId);
