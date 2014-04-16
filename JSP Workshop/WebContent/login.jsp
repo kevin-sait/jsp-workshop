@@ -85,7 +85,7 @@ Create Date: 14/04/2014
 	// initial page load
 	else if (request.getParameter("userid") == null)
 	{
-		// get userid and password strings from cookie object
+		// get userid strings from cookie object
 		String myUserId = "";
 		if(myUserIdCookie != null){
 			myUserId = myUserIdCookie.getValue();
