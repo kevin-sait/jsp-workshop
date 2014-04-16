@@ -13,6 +13,7 @@ public class LoginBean {
 	public void logout(HttpSession session){
 		session.removeAttribute("CustID");
 		session.removeAttribute("loggedin");
+		session.removeAttribute("userid");
 	}
 
 	public String verifyLogin(String userid,String password, HttpSession session){
@@ -45,7 +46,7 @@ public class LoginBean {
 	      {
 	    	  message = "UserId or Password are incorrect";
 	      } else {
-	    	  updateSession(session,rs.getString("customerid").toString());
+	    	  updateSession(session,rs.getString("customerid").toString(),userid);
 	    	  //updateSession(session);
 	      }
  	      
@@ -65,10 +66,11 @@ public class LoginBean {
 	
 	}
 		
-	private void updateSession(HttpSession session, String custId)
+	private void updateSession(HttpSession session, String custId, String userid)
 	{
 		session.setAttribute("CustID", custId);
 		session.setAttribute("loggedin", "true");
+		session.setAttribute("userid", userid);
 	}
 	
 }

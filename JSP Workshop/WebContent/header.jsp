@@ -11,6 +11,11 @@
 
 	<div id="menu1">
 		<a href="index.jsp">Travel Experts</a>
+		<%
+			if (session.getAttribute("userid") != null) {
+				out.print("<div id='welcome'>Hi, " + session.getAttribute("userid") + "!</div>");
+			}
+		%>
 	</div>
 	<div id="menu2">
 	<%

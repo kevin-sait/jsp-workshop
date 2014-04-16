@@ -31,6 +31,11 @@ header {
 	margin-left: 20px;
 }
 
+#welcome {
+	float: right;
+	margin-left: 20px;
+}
+
 h1 {
 	text-align: center;
 	margin: 15px 0;
