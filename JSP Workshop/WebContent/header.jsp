@@ -29,7 +29,28 @@
 	%>
 	</div>
 
-	<div id="banner"></div>
+<div id="banner">
+<img src="images/image1.jpg"  id="slide" width="800" height="400">
+
+<script type="text/javascript">
+
+var step = 1;
+function slideit()
+{	
+	document.getElementById("slide").setAttribute("src", "images/image"+step+".jpg")
+	
+	if (step<5)
+	step++;
+	else
+	step=1;	
+	
+	setTimeout("slideit()",2000);
+	
+}
+slideit()
+
+ </script>
+</div>
 
 </header>
 
