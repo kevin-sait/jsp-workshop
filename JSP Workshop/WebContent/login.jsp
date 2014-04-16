@@ -4,7 +4,7 @@ Application Name: Travel Expert Information System (Web)
 Module Name: login.jsp
 Purpose of this module: 
  - provides login function
- - save and display cookies
+ - save and display cookies 
 Author : Ryuji Sasaki                            
 Create Date: 14/04/2014
 ****************************************************-->

@@ -6,7 +6,7 @@ Purpose of this module:
  - connect database, get users table data for authentication
  - if authentication is OK, set customer id session
  - if authentication failed, returns err message
-Author : Ryuji Sasaki                            
+Author : Ryuji Sasaki                             
 Create Date: 14/04/2014
 *****************************************************/
 package Login;
