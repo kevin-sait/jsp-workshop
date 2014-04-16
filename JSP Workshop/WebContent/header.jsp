@@ -16,7 +16,6 @@
 	<%
 		if (session.getAttribute("loggedin") == null)
 		{
-			out.print("<a href=\"register.jsp\">Register</a>");
 			out.print("<a href=\"login.jsp\">Login</a>");
 		}
 		else
