@@ -5,7 +5,7 @@ Module Name: login.jsp
 Purpose of this module: 
  - provides login function
  - save and display cookies 
-Author : Ryuji Sasaki                            
+Author : Ryuji Sasaki                             
 Create Date: 14/04/2014
 ****************************************************-->
 
